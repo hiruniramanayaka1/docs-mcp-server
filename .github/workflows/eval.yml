@@ -24,6 +24,10 @@ on:
     # Mondays 07:00 UTC. Weekly cadence balances signal vs. judge cost.
     - cron: "0 7 * * 1"
 
+concurrency:
+  group: search-benchmark-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   evaluate:
     name: Evaluate search quality
